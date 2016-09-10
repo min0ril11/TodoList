@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Task.xcodeproj">
+      location = "self:/Users/fukumoriminori/Documents/iPhone_app/Task/TodoList.xcodeproj">
    </FileRef>
 </Workspace>

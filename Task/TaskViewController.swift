@@ -12,6 +12,8 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var tasks: [[String: String]] = []
 
+    @IBOutlet weak var taskTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +45,14 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     /// セルが選択された時に呼ばれるデリゲートメソッド
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(tasks[indexPath.row])
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+        if editingStyle == UITableViewCellEditingStyle.Delete{
+            tasks.removeAtIndex(indexPath.row)
+            NSUserDefaults.standardUserDefaults().setObject(tasks, forKey: "todoList")
+            taskTable.reloadData()
+        }
     }
     
 }

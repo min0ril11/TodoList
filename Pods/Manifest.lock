@@ -1,0 +1,16 @@
+PODS:
+  - Realm (0.102.1):
+    - Realm/Headers (= 0.102.1)
+  - Realm/Headers (0.102.1)
+  - RealmSwift (0.102.1):
+    - Realm (= 0.102.1)
+
+DEPENDENCIES:
+  - Realm (~> 0.102.1)
+  - RealmSwift (~> 0.102.1)
+
+SPEC CHECKSUMS:
+  Realm: 5254be610db3e5024879684717bf038990bb59ec
+  RealmSwift: 3e24e6bcf56d98ccc134f4909e00839b81a659af
+
+COCOAPODS: 0.39.0

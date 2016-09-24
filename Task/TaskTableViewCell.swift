@@ -25,7 +25,7 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     /// 画像・タイトル・説明文を設定するメソッド
-    func setCell(imageName: String, titleText: String, descriptionText: String) {
+    func setCell(titleText: String, descriptionText: String) {
         myTaskLabel.text = titleText
     }
 

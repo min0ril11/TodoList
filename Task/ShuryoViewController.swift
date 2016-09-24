@@ -9,18 +9,20 @@
 import UIKit
 
 class ShuryoViewController: UIViewController {
-    
-    var tasks: [[String: String]] = []
 
+    var task: Task?
+    
     @IBOutlet weak var done: UIButton!
     @IBOutlet weak var notdone: UIButton!
     @IBOutlet weak var finishText: UITextField!
-    @IBOutlet weak var finish: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tasks = NSUserDefaults.standardUserDefaults().objectForKey("todoList") as! [[String: String]]
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.task = appDelegate.toTask
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,23 +36,12 @@ class ShuryoViewController: UIViewController {
         return true
     }
     
-    @IBAction func finish(sender: AnyObject) {
-        /*var tasks = NSUserDefaults.standardUserDefaults().objectForKey("todoList") as! [[String: String]]
-        let dic = ["title": "", "done": "", "comment": finishText.text!]
-        tasks.append(dic)
-        NSUserDefaults.standardUserDefaults().setObject(tasks, forKey: "todoList")*/
-        
-        }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func done(sender: AnyObject) {
+        task!.update(finishText.text, done: true)
     }
-    */
+    
+    @IBAction func notDone(sender: AnyObject) {
+        task!.update(finishText.text, done: false)
+    }
 
 }

@@ -10,16 +10,19 @@ import UIKit
 
 class TaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var tasks: [[String: String]] = []
+    var tasks: [Task] = []
 
     @IBOutlet weak var taskTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tasks = NSUserDefaults.standardUserDefaults().objectForKey("todoList") as! [[String: String]]
         // Do any additional setup after loading the view, typically from a nib.
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        tasks = Task.findAll()
+        taskTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,14 +40,18 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
         // セルを取得
         let cellValue = tableView.dequeueReusableCellWithIdentifier("MyCell") as! TaskTableViewCell
         // セルに値を設定
-        cellValue.myTaskLabel.text = tasks[indexPath.row]["title"]
+        //cellValue.myTaskLabel.text = tasks[indexPath.row]["name"]
+        cellValue.myTaskLabel.text = tasks[indexPath.row].name
         
         return cellValue
     }
     
     /// セルが選択された時に呼ばれるデリゲートメソッド
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(tasks[indexPath.row])
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.toTask = tasks[indexPath.row]
+        
+        print("select \(tasks[indexPath.row])")
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){

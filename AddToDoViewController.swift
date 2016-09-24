@@ -25,15 +25,11 @@ class AddToDoViewController: UIViewController {
     }
     
     @IBAction func addItem(sender: AnyObject) {
-        var tasks = NSUserDefaults.standardUserDefaults().objectForKey("todoList") as! [[String: String]]
-        let dic = ["title": textField.text!, "done": "", "comment": ""]
-        tasks.append(dic)
-        NSUserDefaults.standardUserDefaults().setObject(tasks, forKey: "todoList")
         
+        Task(id: Task.findAll().count+1, name: textField.text!, done: false, comment: "").save()
         
-        /*let hoge = NSUserDefaults.standardUserDefaults().objectForKey("todoList") as? [[String: String]]
-        print(hoge)*/
     }
+    
     /*
     改行ボタンが押された際に呼ばれるデリゲートメソッド.
     */

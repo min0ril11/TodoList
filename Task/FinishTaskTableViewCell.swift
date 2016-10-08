@@ -15,6 +15,7 @@ class FinishTaskTableViewCell: UITableViewCell {
     @IBOutlet weak var finishTaskLabel: UILabel!
     @IBOutlet weak var doneLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -21,7 +21,7 @@ class TaskViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewDidAppear(animated: Bool) {
-        tasks = Task.findAll()
+        tasks = Task.findYet()
         taskTable.reloadData()
     }
 

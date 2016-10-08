@@ -10,7 +10,7 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
     
-    /// タイトルを表示するLabel
+    // タイトルを表示するLabel
     @IBOutlet weak var myTaskLabel: UILabel!
 
     override func awakeFromNib() {

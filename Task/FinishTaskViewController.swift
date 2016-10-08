@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import Foundation
 
 class FinishTaskViewController: UIViewController, UITableViewDataSource {
     
-    var tasks: [Task] = []
     @IBOutlet weak var finishTaskTable: UITableView!
+    @IBOutlet weak var dateLabel: UILabel!
     
+    var tasks: [Task] = []
+    //シンプルに宣言するだけで現在時刻のNSDateを作成できます。
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     override func viewDidAppear(animated: Bool) {
-        tasks = Task.findAll()
+        tasks = Task.findDone()
         finishTaskTable.reloadData()
     }
     
@@ -32,7 +36,7 @@ class FinishTaskViewController: UIViewController, UITableViewDataSource {
         return tasks.count
     }
     
-    /// セルに値を設定するデータソースメソッド（必須）
+    // セルに値を設定するデータソースメソッド（必須）
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // セルを取得
         let cellValue = tableView.dequeueReusableCellWithIdentifier("FinishCell") as! FinishTaskTableViewCell
@@ -43,7 +47,8 @@ class FinishTaskViewController: UIViewController, UITableViewDataSource {
         } else {
             cellValue.doneLabel.text = "できなかった"
         }
-        cellValue.commentLabel.text = tasks[indexPath.row].comment
+        
+        //cellValue.commentLabel.text = tasks[indexPath.row].comment
         
         return cellValue
     }

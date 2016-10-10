@@ -67,12 +67,13 @@ class Task: Object {
     }
     
     //更新
-    func update(comment: String?, complete: Bool?) {
+    func update(comment: String?, complete: Bool?, date: String?) {
         let realm = RealmFactory.sharedInstance.realm()
         do {
             try realm.write {
                 if let comment = comment { self.comment = comment }
                 if let complete = complete { self.complete = complete }
+                if let date = date { self.date = date }
                 self.done = true
             }
         } catch let error as NSError {

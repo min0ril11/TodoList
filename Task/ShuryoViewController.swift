@@ -47,7 +47,7 @@ class ShuryoViewController: UIViewController {
     }
 
     @IBAction func done(sender: AnyObject) {
-        task!.update(finishText.text, complete: true)
+        task!.update(finishText.text, complete: true, date: "yyyy/MM/dd")
         if finishText.text == "" {
             let alertController = UIAlertController(title: "コメントを入力してください", message: "", preferredStyle: .Alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -72,7 +72,7 @@ class ShuryoViewController: UIViewController {
     }
     
     @IBAction func notDone(sender: AnyObject) {
-        task!.update(finishText.text, complete: false)
+        task!.update(finishText.text, complete: false, date: "yyyy/MM/dd")
         if finishText.text == "" {
             let alertController = UIAlertController(title: "コメントを入力してください", message: "", preferredStyle: .Alert)
             let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -93,8 +93,6 @@ class ShuryoViewController: UIViewController {
         
         let formattedDate = formatter.stringFromDate(date)
         print(formattedDate)
-        
-        
 
     }
 }

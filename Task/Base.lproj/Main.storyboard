@@ -168,7 +168,7 @@
             </objects>
             <point key="canvasLocation" x="231.5" y="-148.5"/>
         </scene>
-        <!--Item 1-->
+        <!--Reflection-->
         <scene sceneID="kcZ-dE-kcC">
             <objects>
                 <viewController id="kJT-U7-jhO" customClass="FinishTaskViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -221,7 +221,7 @@
                             <outlet property="dataSource" destination="kJT-U7-jhO" id="bAU-D5-eoB"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="TVm-Vq-sYC"/>
+                    <tabBarItem key="tabBarItem" title="Reflection" id="TVm-Vq-sYC"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="finishTaskTable" destination="RbM-zT-7yP" id="3Pr-jr-50B"/>

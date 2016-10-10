@@ -15,7 +15,7 @@ class FinishTaskViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var dateLabel: UILabel!
     
     var tasks: [Task] = []
-    //シンプルに宣言するだけで現在時刻のNSDateを作成できます。
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -48,7 +48,7 @@ class FinishTaskViewController: UIViewController, UITableViewDataSource {
             cellValue.doneLabel.text = "できなかった"
         }
         
-        //cellValue.commentLabel.text = tasks[indexPath.row].comment
+        dateLabel.text = "yyyy/MM/dd"
         
         return cellValue
     }
